@@ -2,6 +2,8 @@ const arrayBotones = document.getElementsByClassName("boton");
 const pantalla = document.getElementsByClassName("pantalla");
 const botones = ["reset", "del","%" ,"/",  7, 8, 9, "X", 4, 5, 6, "-", 1, 2, 3, "+", 0, ".", "+/-", "=" ]
 
+let valorDisplay="casdac" 
+
 for (let i = 0; i < arrayBotones.length; i++) {
     arrayBotones[i].textContent = botones[i]	
      
@@ -14,12 +16,19 @@ for (let i = 0; i < arrayBotones.length; i++) {
     arrayBotones[i].onmousedown = function (){
         arrayBotones[i].style.fontSize = "large";
         pantalla[0].textContent += arrayBotones[i].textContent
+        if (arrayBotones[i].textContent == "reset"){
+            pantalla[0].textContent = ""
+        }
+        valorDisplay = pantalla[0].textContent
     }   
     arrayBotones[i].onmouseup = function (){
         arrayBotones[i].style.fontSize= "x-large";
     } 
 }
 
+function valor(){
+    alert(valorDisplay)
+}
 
 function add(a, b){
     return a + b
